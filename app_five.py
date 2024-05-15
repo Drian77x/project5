@@ -33,9 +33,9 @@ boxbox = st.checkbox('Kilometraje por año')
 if boxbox: # si la casilla de verificación está seleccionada
     st.write('Construir dispersión para kilometreaje')
     fig_box = px.scatter(car_data, 
-                        y='odometer', 
                         x='model_year',
+                        y='odometer',
                         color_discrete_sequence=["blue"], 
-                        opacity=0.4,
+                        opacity=0.3,
                         labels={"model_year": "Año del modelo", 'odometer':'Kms recorridos'})
-    st.plotly_chart(boxbox, use_container_width=True)
+    st.plotly_chart(fig_box, use_container_width=True)
