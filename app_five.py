@@ -11,12 +11,12 @@ hist_button = st.button('Histograma de cantidad de autos por su año')
 if hist_button:
     st.write('Autos en venta según año de fabricación')
     fig = px.histogram(car_data, 
-                     x='model_year', 
-                    labels={"model_year": "Año del auto"}, 
+                     x = 'model_year', 
+                    labels = {"model_year": "Año del auto"}, 
                     color_discrete_sequence=["green"])
     st.plotly_chart(fig, use_container_width=True)
 
-scatter_button = st.button('Construcción dispersión')
+scatter_button = st.button('Distribución de precios')
 
 if scatter_button:
     st.write('Dispersión de costo según el año')
@@ -28,4 +28,14 @@ if scatter_button:
                         labels={"model_year": "Año del modelo", 'price':'Precio de Venta'})
     st.plotly_chart(fig_two, use_container_width=True)
 
+boxbox = st.checkbox('Kilometraje por año')
 
+if boxbox: # si la casilla de verificación está seleccionada
+    st.write('Construir dispersión para kilometreaje')
+    fig_box = px.scatter(car_data, 
+                        y='odometer', 
+                        x='model_year',
+                        color_discrete_sequence=["blue"], 
+                        opacity=0.4,
+                        labels={"model_year": "Año del modelo", 'odometer':'Kms recorridos'})
+    st.plotly_chart(boxbox, use_container_width=True)
