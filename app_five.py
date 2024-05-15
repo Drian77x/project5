@@ -16,3 +16,10 @@ if scatter_button:
     st.write('Crea el gráfico de dispersión')
     figu = px.scatter(car_data, x='model', y='model_year')
     st.plotly_chart(figu, use_container_width=True)
+
+price_button = st.button('Costo por km')
+
+if price_button:
+    st.write('Crea el gráfico de dispersión')
+    figu = px.scatter(car_data, x='model_year', y='price')
+    st.plotly_chart(figu, use_container_width=True)
